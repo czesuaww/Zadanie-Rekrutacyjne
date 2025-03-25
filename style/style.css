@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: var(--main-font);
+}
+
+:root {
+  --main-font: "Open Sans", sans-serif;
+  --white-color: #ffffff;
+  --orange-color: #d88e49;
+  --black-color: #000000;
+  --background-shadow: rgba(0, 0, 0, 0.6);
+  --gray-color: #b3adad;
+}

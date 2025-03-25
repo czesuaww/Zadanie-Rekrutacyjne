@@ -1,0 +1,38 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.wrapper__header-arrow {
+  position: absolute;
+  left: 48%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  z-index: 11;
+}
+
+.wrapper__header-arrow-icon {
+  padding: 20px;
+  width: 80px;
+}
+
+.wrapper__header-arrow::before {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--white-color);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitar Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/arrow.css" />
+    <link rel="stylesheet" href="./style/topbbar.css" />
+    <link rel="stylesheet" href="./style/products.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="wrapper__topBar">
+        <a href="./index.html" class="wrapper__topBar-link">
+          <div class="wrapper__topBar-arrowContainer arrow">
+            <img src="./img/arrow-down.svg" alt="Powrót" class="wrapper__topBar-arrowContainer-icon arrow-icon" />
+          </div>
+        </a>
+      </div>
+      <header class="wrapper__header">
+        <div class="wrapper__header-img">
+          <div class="wrapper__header-img-shadow">
+            <div class="wrapper__header-text">
+              <h3 class="wrapper__header-text-hello">
+                Odkryj swoją wymarzoną gitarę w
+                <span class="wrapper__header-text-hello--color">GuitarStore</span>
+              </h3>
+              <br />
+              <p class="wrapper__header-text-about">Przewiń w dół i znajdź instrument, który idealnie dopasuje się do Twojego stylu.</p>
+              <br />
+              <p class="wrapper__header-text-about">Klasyczne, elektryczne, akustyczne – mamy wszystko, czego potrzebujesz, by grać jak mistrz!</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="wrapper__products" id="product-list"></section>
+    </div>
+    <script src="./script/products.js"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+.wrapper__header {
+  position: relative;
+  height: 100vh;
+  border-bottom: var(--border-line);
+}
+
+.wrapper__header-img {
+  position: relative;
+  background-image: url("../img/simon-weisser-phS37wg8cQg-unsplash.jpg");
+  background-position: center;
+  height: 100vh;
+  background-size: cover;
+  z-index: 1;
+}
+
+.wrapper__header-img-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-shadow);
+  z-index: -1;
+}
+
+.wrapper__header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  color: var(--white-color);
+}
+
+.wrapper__header-text-hello {
+  margin-bottom: 0.5em;
+  color: var(--white-color);
+  font-size: 2rem;
+  position: relative;
+  z-index: -10;
+}
+
+.wrapper__header-text-hello--color {
+  color: var(--orange-color);
+}
+
+.wrapper__header-text-about {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 600px) {
+  .wrapper__header-text-hello {
+    font-size: 4.5rem;
+  }
+
+  .wrapper__header-text-about {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .wrapper__header-text-hello {
+    font-size: 7rem;
+  }
+
+  .wrapper__header-text p {
+    font-size: 3rem;
+  }
+}
