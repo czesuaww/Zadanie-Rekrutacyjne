@@ -49,7 +49,7 @@ const observer = new IntersectionObserver(
             }
         });
     },
-    { threshold: 0.2 }
+    { threshold: 0.2, rootMargin: "0px 0px 100px 0px" }
 );
 
 document.querySelectorAll(".product").forEach((product) => observer.observe(product));
