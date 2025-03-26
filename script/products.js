@@ -41,10 +41,10 @@ const productRenderer = {
 
         const fragment = document.createDocumentFragment();
         const productsToRender = products.slice(globalVariables.currentIndex, globalVariables.currentIndex + globalVariables.productToShow);
-
+        console.log(productsToRender, 'to render');
         productsToRender.forEach((product) => {
             const productElement = document.createElement("div");
-            productElement.classList.add("product");
+            productElement.classList.add("product", "fade-in");
             productElement.innerHTML = `
                 <a href="product.html?id=${product.id}&name=${encodeURIComponent(product.name)}&alt=${encodeURIComponent(product.alt)}&price=${encodeURIComponent(product.price)}&img=${encodeURIComponent(product.img)}&imgHover=${encodeURIComponent(product.imgHover)}">
                     <img class="wrapper__products-img" src="${product.img}" alt="${product.name}" loading="lazy">
