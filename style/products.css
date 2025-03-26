@@ -49,6 +49,19 @@
   transform: translateY(0);
 }
 
+.wrapper__showMore {
+  font-family: var(--main-font);
+  margin: 35px auto;
+  padding: 15px 40px;
+  border: none;
+  color: var(--black-color);
+  border-radius: 10px;
+  background: var(--show-more-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 @media (min-width: 600px) {
   .wrapper__header-text-hello {
     font-size: 3rem;

@@ -1,4 +1,12 @@
-const domElements = { productList: document.getElementById("product-list") };
+const domElements = {
+    productList: document.getElementById("product-list"),
+    showMoreBtn: document.querySelector('.wrapper__showMore')
+};
+
+const globalVariables = {
+    productToShow: 10,
+    currentIndex: 0
+}
 
 const products = [
     { id: 1111, name: "Gitara Elektryczna One", alt: "Gitara Elektryczna One", price: "1200 PLN", img: "https://images.unsplash.com/photo-1568193755668-aae18714a9f1?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", imgHover: "https://images.unsplash.com/photo-1574624136404-74cc2f967ba5" },
@@ -24,18 +32,19 @@ const products = [
     { id: 1131, name: "Gitara Elektryczna Twenty-one", alt: "Gitara Elektryczna Twenty-one", price: "1819 PLN", img: "https://images.unsplash.com/photo-1618530627969-d1de1bf1b3ca", imgHover: "https://images.unsplash.com/photo-1574624136404-74cc2f967ba5" }
 ];
 
+
 const productRenderer = {
     renderProducts() {
-        const { productList } = domElements;
+        const { productList, showMoreBtn } = domElements;
 
         if (!productList) return;
 
         const fragment = document.createDocumentFragment();
+        const productsToRender = products.slice(globalVariables.currentIndex, globalVariables.currentIndex + globalVariables.productToShow);
 
-        products.forEach((product) => {
+        productsToRender.forEach((product) => {
             const productElement = document.createElement("div");
             productElement.classList.add("product");
-
             productElement.innerHTML = `
                 <a href="product.html?id=${product.id}&name=${encodeURIComponent(product.name)}&alt=${encodeURIComponent(product.alt)}&price=${encodeURIComponent(product.price)}&img=${encodeURIComponent(product.img)}&imgHover=${encodeURIComponent(product.imgHover)}">
                     <img class="wrapper__products-img" src="${product.img}" alt="${product.name}" loading="lazy">
@@ -44,36 +53,55 @@ const productRenderer = {
                 <p class="wrapper__products-price">Cena: ${product.price}</p>
                 <p class="wrapper__products-id">ID: ${product.id}</p>
             `;
-
             fragment.appendChild(productElement);
         });
 
         productList.appendChild(fragment);
+        globalVariables.currentIndex += globalVariables.productToShow;
+
+        if (globalVariables.currentIndex >= products.length) {
+            showMoreBtn.style.display = "none";
+        } else {
+            showMoreBtn.style.display = "block";
+        }
     },
 };
 
 const productObservers = {
     initializeObservers() {
+        const products = document.querySelectorAll(".product");
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible");
-
                         observer.unobserve(entry.target);
-                        console.log('dupa');
                     }
                 });
             },
             { threshold: 0.2 }
         );
-        document.querySelectorAll(".product").forEach((product) => observer.observe(product));
+
+        products.forEach((product) => observer.observe(product));
+    }
+};
+
+const userInteractionHandlers = {
+    initializeUserInteractionEvents() {
+        const { showMoreBtn } = domElements;
+
+        showMoreBtn.addEventListener('click', () => {
+            productRenderer.renderProducts();
+            productObservers.initializeObservers();
+        })
     }
 };
 
 const main = () => {
     productRenderer.renderProducts();
     productObservers.initializeObservers();
+    userInteractionHandlers.initializeUserInteractionEvents();
 };
 
 document.addEventListener("DOMContentLoaded", main);

@@ -96,7 +96,6 @@ body {
   background-color: var(--add-button-color-hover);
 }
 
-/* Dla większych ekranów ustawiamy flex row */
 @media screen and (min-width: 600px) {
   .wrapper__product {
     flex-direction: row;
